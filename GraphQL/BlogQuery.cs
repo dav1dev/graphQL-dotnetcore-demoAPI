@@ -51,7 +51,7 @@ namespace GraphQLDemoAPI.GraphQL
             Field<PostType>(
                 "post",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<IdGraphType>> {Name = "id"}
+                    new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "id" }
                 ),
                 resolve: context =>
                 {
@@ -67,7 +67,7 @@ namespace GraphQLDemoAPI.GraphQL
             Field<ListGraphType<SearchInterface>>(
                 "search",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "text"}
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "text" }
                 ),
                 resolve: context =>
                 {
@@ -89,17 +89,21 @@ namespace GraphQLDemoAPI.GraphQL
             Field<ListGraphType<SearchUnion>>(
                 "searchUnion",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "text"}
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "text" }
                 ),
                 resolve: context =>
                 {
                     var text = context.GetArgument<string>("text");
 
                     var comments = dbContext.Comments
+                        .Include(c => c.Post)
+                        .Include(c => c.User)
                         .Where(c => c.Body.Contains(text))
                         .ToList();
 
                     var posts = dbContext.Posts
+                        .Include(p => p.Comments)
+                        .Include(p => p.User)
                         .Where(p => p.Title.Contains(text) || p.Body.Contains(text))
                         .ToList();
 

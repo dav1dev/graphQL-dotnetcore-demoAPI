@@ -1,0 +1,42 @@
+﻿# prepared sample queries for demo
+
+# fetch all posts
+query allPosts {
+  posts {
+    title
+    user {
+      name
+    }
+	# todo: include comments
+  }
+}
+
+
+# fetch post by id
+query postById {
+  post(id: 3){
+    title
+  }
+}
+
+
+# search by text, returns interface
+query search {
+  search(text: "quasi") {
+    body
+  }
+}
+
+
+# search by text, returns union
+query searchUnion {
+  searchUnion(text: "quasi") {
+    __typename,
+    ... on Post {
+      # todo: include specific member
+    }
+    ... on Comment {
+      # todo: include specific member
+    }
+  }
+}

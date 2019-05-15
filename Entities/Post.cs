@@ -19,15 +19,4 @@ namespace GraphQLDemoAPI.Entities
 
         public List<Comment> Comments { get; set; }
     }
-
-    public interface ISearchResult
-    {
-        bool IsMatch { get; }
-
-        int Id { get; }
-
-        string Field { get; }
-
-        string Value { get; }
-    }
 }

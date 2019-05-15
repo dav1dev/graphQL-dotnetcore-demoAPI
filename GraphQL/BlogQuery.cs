@@ -17,7 +17,7 @@ namespace GraphQLDemoAPI.GraphQL
 
             DefinePostById(dbContext);
 
-            DefineSearchByText(dbContext);
+            DefineSearchInterfaceByText(dbContext);
 
             DefineSearchUnionByText(dbContext);
         }
@@ -59,7 +59,7 @@ namespace GraphQLDemoAPI.GraphQL
                 }
             );
 
-        private void DefineSearchByText(ApplicationDbContext dbContext) =>
+        private void DefineSearchInterfaceByText(ApplicationDbContext dbContext) =>
             Field<ListGraphType<SearchInterface>>(
                 "search",
                 arguments: new QueryArguments(
@@ -90,6 +90,7 @@ namespace GraphQLDemoAPI.GraphQL
                 resolve: context =>
                 {
                     var text = context.GetArgument<string>("text");
+
                     var comments = dbContext.Comments
                         .Where(c => c.Body.Contains(text))
                         .ToList();

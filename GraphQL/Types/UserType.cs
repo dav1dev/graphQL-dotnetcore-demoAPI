@@ -7,6 +7,7 @@ namespace GraphQLDemoAPI.GraphQL.Types
     {
         public UserType()
         {
+            Name = "User";
             Field(x => x.Id);
             Field(x => x.Name);
             Field(x => x.UserName);

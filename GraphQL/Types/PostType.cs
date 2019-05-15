@@ -3,6 +3,7 @@ using GraphQLDemoAPI.Entities;
 
 namespace GraphQLDemoAPI.GraphQL.Types
 {
+    // TODO 03: add graph types
     public class PostType : ObjectGraphType<Post>
     {
         public PostType()

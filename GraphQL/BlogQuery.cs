@@ -11,15 +11,19 @@ namespace GraphQLDemoAPI.GraphQL
     {
         public BlogQuery(ApplicationDbContext dbContext)
         {
-            DefinePosts(dbContext);
-            DefineUsers(dbContext);
-            DefineComments(dbContext);
+            // TODO 04: define fields
+            //DefinePosts(dbContext);
+            //DefineUsers(dbContext);
+            //DefineComments(dbContext);
 
-            DefinePostById(dbContext);
+            // TODO 09: define field with filter
+            //DefinePostById(dbContext);
 
-            DefineSearchInterfaceByText(dbContext);
+            // TODO 10: define field using interface
+            //DefineSearchInterfaceByText(dbContext);
 
-            DefineSearchUnionByText(dbContext);
+            // TODO 11: define field using union
+            //DefineSearchUnionByText(dbContext);
         }
 
         private void DefineComments(ApplicationDbContext dbContext) =>

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GraphQLDemoAPI.GraphQL
 {
+    // TODO 07: add controller
+    
     [ApiController]
     [Route("graphql")]
     public class GraphQlController : Controller
@@ -22,6 +24,8 @@ namespace GraphQLDemoAPI.GraphQL
 
         public async Task<IActionResult> PostAsync([FromBody] GraphQlQuery query)
         {
+            // TODO 08: implement query execution 
+
             var inputs = query.Variables.ToInputs();
 
             var result = await _executor.ExecuteAsync(options =>

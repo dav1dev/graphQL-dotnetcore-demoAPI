@@ -30,6 +30,8 @@ namespace GraphQLDemoAPI
             {
                 context.UseInMemoryDatabase("GraphQL");
             });
+
+            // TODO 06: register services
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
             services.AddSingleton<CommentType>();
             services.AddSingleton<PostType>();
@@ -45,6 +47,8 @@ namespace GraphQLDemoAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // TODO 02: activate graph i QL
                 app.UseGraphiQl("/graphql");
             }
             else

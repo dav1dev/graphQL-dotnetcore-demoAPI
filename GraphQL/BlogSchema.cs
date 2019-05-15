@@ -6,6 +6,7 @@ namespace GraphQLDemoAPI.GraphQL
     {
         public BlogSchema(BlogQuery query)
         {
+            // TODO 05: add query to schema
             Query = query;
         }
     }

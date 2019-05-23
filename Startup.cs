@@ -33,11 +33,6 @@ namespace GraphQLDemoAPI
 
             // TODO 06: register services
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
-            services.AddSingleton<CommentType>();
-            services.AddSingleton<PostType>();
-            services.AddSingleton<UserType>();
-            services.AddSingleton<SearchInterface>();
-            services.AddSingleton<SearchUnion>();
             services.AddScoped<BlogQuery>();
             services.AddScoped<ISchema, BlogSchema>();
         }
